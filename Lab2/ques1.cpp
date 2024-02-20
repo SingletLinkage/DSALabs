@@ -3,13 +3,22 @@
 # include <iostream>
 using namespace std;
 
+
 int main(){
-	int array[] = {4,23,5,345,46,4576,35,436,346};
-	int len = sizeof(array)/sizeof(array[0]);
+	int array[INT16_MAX];
+	int len;
+	
+	cout << "Enter number of elements: ";
+	cin >> len;
+
+	for (int i=0; i<len; i++){
+		cout << "Enter element number " << i+1 << ": ";
+		cin >> array[i];
+	}
+
 	int comparisons=0;
 	int shifts = 0;
 
-	
 	for (int i=1; i<len; i++){
 		int	key = array[i];
 		int j=i-1;
@@ -27,8 +36,8 @@ int main(){
 		array[j+1] = key;
 	}
 
-	for(int i : array){
-		cout << i << " ";
+	for(int i=0; i<len; i++){
+		cout << array[i] << " ";
 	}
 	cout << endl;
 	cout << "Comparisons: " << comparisons << " Shifts: " << shifts << endl;
