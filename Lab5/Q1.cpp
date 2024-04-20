@@ -54,16 +54,21 @@ class MaxHeap{
     void remove_idx(int idx){
         int c1 = 2 * idx;
         int c2 = 2 * idx + 1;
+        int temp;
 
         if (c1 >= this->lastidx){
             return;
         }
 
         if ((c2 >= this->lastidx) || (this->heap[c1] >= this->heap[c2])){
+            temp = this->heap[idx];
             this->heap[idx] = this->heap[c1];
+            this->heap[c1] = temp;
             this->remove_idx(c1);
         }else{
+            temp = this->heap[idx];
             this->heap[idx] = this->heap[c2];
+            this->heap[c2] = temp;
             this->remove_idx(c2);
         }
 
