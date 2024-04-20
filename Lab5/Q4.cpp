@@ -114,14 +114,6 @@ class MinHeap{
     }
 };
 
-
-class compare{
-    public:
-    bool operator()(Node* a, Node* b){
-        return a->value > b->value;
-    }
-};
-
 int main(){
     Node* h1 = new Node(2);
     h1->next = new Node(4);
@@ -157,7 +149,7 @@ int main(){
     }
 
     answer->print();
-    
+
     cout << endl;
 
     return 0;
